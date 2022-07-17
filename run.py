@@ -36,6 +36,9 @@ while True:
         round += 1
 
         current_round = {}
+
+        # If we don't shuffle the list, the same person will get left out when
+        # there are odd numbers of people
         random.shuffle(all_ppl)
 
         for p1, p2 in combinations(all_ppl, r=2):
