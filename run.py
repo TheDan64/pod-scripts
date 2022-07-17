@@ -30,7 +30,7 @@ while True:
 
         print("removed", command[1], '\n')
     elif len(command) == 1 and (command[0] == "show" or command[0] == "s"):
-        print("all ppl", all_ppl)
+        print("all ppl", all_ppl, '\n')
     elif len(command) == 1 and (command[0] == "next" or command[0] == "n"):
         print("Beginning round:", round)
         round += 1
