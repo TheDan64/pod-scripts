@@ -22,13 +22,17 @@ while True:
     if len(command) >= 2 and (command[0] == "add" or command[0] == "a"):
         if command[1] not in all_ppl:
             all_ppl.append(command[1])
+            print("added", command[1], '\n')
+        else:
+            print(command[1], "was already added\n")
 
-        print("added", command[1], '\n')
     elif len(command) >= 2 and (command[0] == "remove" or command[0] == "r"):
         if command[1] in all_ppl:
             all_ppl.remove(command[1])
+            print("removed", command[1], '\n')
+        else:
+            print(command[1], "was not found\n")
 
-        print("removed", command[1], '\n')
     elif len(command) == 1 and (command[0] == "show" or command[0] == "s"):
         print("all ppl", all_ppl, '\n')
     elif len(command) == 1 and (command[0] == "next" or command[0] == "n"):
