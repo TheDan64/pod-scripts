@@ -5,10 +5,11 @@ from itertools import combinations
 
 prompt = """\
 Type one of the following commands:
-add [person]
-remove [person]
-show
-next
+(a)dd [person]
+(r)emove [person]
+(e)xclude [person1] [person2]
+(s)how
+(n)ext
 exit
 > """
 
@@ -35,6 +36,17 @@ while True:
 
     elif len(command) == 1 and (command[0] == "show" or command[0] == "s"):
         print("all ppl", all_ppl, '\n')
+    elif len(command) >= 3 and (command[0] == "exclude" or command[0] == "e"):
+        if command[1] not in all_ppl:
+            print("could not find", command[1], '\n')
+            continue
+        if command[2] not in all_ppl:
+            print("could not find", command[2], '\n')
+            continue
+
+        all_pairs[(command[1], command[2])] = True
+
+        print("excluded", command[1], command[2], "from pairing\n")
     elif len(command) == 1 and (command[0] == "next" or command[0] == "n"):
         print("Beginning round:", round)
         round += 1
@@ -60,5 +72,5 @@ while True:
         print("done")
         break
     else:
-        print("unknown command", command[0])
+        print("unknown or incorrect command", command[0], '\n')
         continue
